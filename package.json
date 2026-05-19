@@ -1,0 +1,67 @@
+{
+  "name": "recap-mcp",
+  "version": "0.1.0",
+  "description": "Recap: Your AI project manager. Plain markdown. Local-first. Open source.",
+  "type": "module",
+  "main": "dist/src/server.js",
+  "bin": {
+    "recap-mcp": "dist/bin/init.js",
+    "recap-mcp-server": "dist/src/server.js"
+  },
+  "files": [
+    "dist",
+    "templates",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/server.ts",
+    "start": "node dist/src/server.js",
+    "init": "tsx bin/init.ts",
+    "clean": "rimraf dist",
+    "test": "npm run test:smoke && npm run test:stdio && npm run test:installer",
+    "test:smoke": "tsx tests/smoke.ts",
+    "test:stdio": "npm run build && tsx tests/stdio.ts",
+    "test:installer": "npm run build && tsx tests/installer.ts",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "claude",
+    "project-management",
+    "personal-assistant",
+    "productivity",
+    "second-brain",
+    "model-context-protocol"
+  ],
+  "author": "Shivam Singh",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shivam-singh-git/recap-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shivam-singh-git/recap-mcp/issues"
+  },
+  "homepage": "https://github.com/shivam-singh-git/recap-mcp#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "commander": "^12.1.0",
+    "date-fns": "^4.1.0",
+    "gray-matter": "^4.0.3",
+    "minisearch": "^7.1.0",
+    "prompts": "^2.4.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/prompts": "^2.4.9",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
