@@ -106,7 +106,7 @@ Run `npx recap-mcp doctor` for diagnostics.
 If Claude Desktop doesn't see Recap after install:
 
 1. Make sure you fully quit Claude Desktop (not just closed the window).
-2. Check `~/.recap-workspace/` exists.
+2. Check `~/recap-workspace/` exists.
 3. Check your Claude Desktop config has `mcpServers.recap` entry.
 
 ## Privacy
