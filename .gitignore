@@ -10,3 +10,4 @@ coverage/
 *.tsbuildinfo
 .npm-debug.log*
 .recap-test-workspace/
+scripts/
