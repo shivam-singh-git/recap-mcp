@@ -134,7 +134,7 @@ async function cmdInit(opts: { yes: boolean; workspace?: string }): Promise<void
   existing.mcpServers ??= {};
   existing.mcpServers["recap"] = {
     command: "npx",
-    args: ["-y", "recap-mcp-server"],
+    args: ["-y", "-p", "recap-mcp", "recap-mcp-server"],
     env: { RECAP_WORKSPACE_PATH: workspacePath },
   };
   await writeJson(configPath, existing);

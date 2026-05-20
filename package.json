@@ -1,6 +1,6 @@
 {
   "name": "recap-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Recap: Your AI project manager. Plain markdown. Local-first. Open source.",
   "type": "module",
   "main": "dist/src/server.js",
@@ -11,6 +11,7 @@
   "files": [
     "dist",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ],
   "scripts": {

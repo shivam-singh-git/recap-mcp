@@ -60,6 +60,20 @@ check(
   "args include recap-mcp-server",
   cfg1.mcpServers?.recap?.args?.includes("recap-mcp-server") === true,
 );
+// Regression guard (v0.1.1): npx must use `-p <package> <binary>` form because
+// recap-mcp-server is a binary INSIDE the recap-mcp package, not a package on
+// npm. `npx -y recap-mcp-server` 404s. Do not loosen these assertions.
+const args1 = cfg1.mcpServers?.recap?.args ?? [];
+const pIndex = args1.indexOf("-p");
+check("args use npx -p form", pIndex !== -1);
+check(
+  "args specify recap-mcp as the package",
+  pIndex !== -1 && args1[pIndex + 1] === "recap-mcp",
+);
+check(
+  "recap-mcp-server is the last arg (the binary to run)",
+  args1[args1.length - 1] === "recap-mcp-server",
+);
 check(
   "env carries workspace path",
   cfg1.mcpServers?.recap?.env?.RECAP_WORKSPACE_PATH === WORKSPACE,
